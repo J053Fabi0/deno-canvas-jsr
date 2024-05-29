@@ -3,7 +3,7 @@
  * to only load WASM when needed.
  */
 import * as lib from "./lib.js";
-import { CanvasKit } from "./types.ts";
+import type { CanvasKit } from "./types.ts";
 
 async function init(options?: any): Promise<CanvasKit> {
   return await lib.CanvasKitInit(options ?? {});

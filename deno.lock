@@ -1,0 +1,19 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "jsr:@std/encoding@^0.224.2": "jsr:@std/encoding@0.224.2"
+    },
+    "jsr": {
+      "@std/encoding@0.224.2": {
+        "integrity": "bd9ef45d6028296440005804db7fc8fcc86e72fc1a19bb77684fb39c4a613672"
+      }
+    }
+  },
+  "remote": {},
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/encoding@^0.224.2"
+    ]
+  }
+}
