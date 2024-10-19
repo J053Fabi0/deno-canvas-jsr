@@ -3421,7 +3421,7 @@ export var CanvasKitInit = (function () {
       Ga,
       Ja;
     if (Aa) {
-      (Ca = za ? require("path").dirname(Ca) + "/" : __dirname + "/"),
+      (Ca = za ? require("path").dirname(Ca) + "/" : import.meta.dirname + "/"),
         (Da = function (a, b) {
           Ga || (Ga = require("fs"));
           Ja || (Ja = require("path"));
