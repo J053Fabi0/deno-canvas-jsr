@@ -8,7 +8,13 @@ export type CanvasFillRule = "nonzero" | "evenodd";
 export type CanvasLineCap = "butt" | "round" | "square";
 export type CanvasLineJoin = "round" | "bevel" | "miter";
 export type CanvasTextAlign = "start" | "end" | "left" | "right" | "center";
-export type CanvasTextBaseline = "top" | "hanging" | "middle" | "alphabetic" | "ideographic" | "bottom";
+export type CanvasTextBaseline =
+  | "top"
+  | "hanging"
+  | "middle"
+  | "alphabetic"
+  | "ideographic"
+  | "bottom";
 export type ImageSmoothingQuality = "low" | "medium" | "high";
 
 export interface DOMMatrix2DInit {
@@ -50,7 +56,11 @@ export interface ImageBitmap {
 export interface Element {}
 
 export interface HTMLCanvasElement {}
-export type CanvasImageSource = EmulatedCanvas2D | ImageBitmap | EmbindObject<Image> | Image;
+export type CanvasImageSource =
+  | EmulatedCanvas2D
+  | ImageBitmap
+  | EmbindObject<Image>
+  | Image;
 
 export interface DOMMatrixReadOnly {
   readonly a: number;
@@ -82,7 +92,12 @@ export interface DOMMatrixReadOnly {
   inverse(): DOMMatrix;
   multiply(other?: DOMMatrixInit): DOMMatrix;
   rotate(rotX?: number, rotY?: number, rotZ?: number): DOMMatrix;
-  rotateAxisAngle(x?: number, y?: number, z?: number, angle?: number): DOMMatrix;
+  rotateAxisAngle(
+    x?: number,
+    y?: number,
+    z?: number,
+    angle?: number,
+  ): DOMMatrix;
   rotateFromVector(x?: number, y?: number): DOMMatrix;
   scale(
     scaleX?: number,
@@ -90,9 +105,14 @@ export interface DOMMatrixReadOnly {
     scaleZ?: number,
     originX?: number,
     originY?: number,
-    originZ?: number
+    originZ?: number,
   ): DOMMatrix;
-  scale3d(scale?: number, originX?: number, originY?: number, originZ?: number): DOMMatrix;
+  scale3d(
+    scale?: number,
+    originX?: number,
+    originY?: number,
+    originZ?: number,
+  ): DOMMatrix;
   /** @deprecated */
   scaleNonUniform(scaleX?: number, scaleY?: number): DOMMatrix;
   skewX(sx?: number): DOMMatrix;
@@ -131,17 +151,27 @@ export interface DOMMatrix extends DOMMatrixReadOnly {
   invertSelf(): DOMMatrix;
   multiplySelf(other?: DOMMatrixInit): DOMMatrix;
   preMultiplySelf(other?: DOMMatrixInit): DOMMatrix;
-  rotateAxisAngleSelf(x?: number, y?: number, z?: number, angle?: number): DOMMatrix;
+  rotateAxisAngleSelf(
+    x?: number,
+    y?: number,
+    z?: number,
+    angle?: number,
+  ): DOMMatrix;
   rotateFromVectorSelf(x?: number, y?: number): DOMMatrix;
   rotateSelf(rotX?: number, rotY?: number, rotZ?: number): DOMMatrix;
-  scale3dSelf(scale?: number, originX?: number, originY?: number, originZ?: number): DOMMatrix;
+  scale3dSelf(
+    scale?: number,
+    originX?: number,
+    originY?: number,
+    originZ?: number,
+  ): DOMMatrix;
   scaleSelf(
     scaleX?: number,
     scaleY?: number,
     scaleZ?: number,
     originX?: number,
     originY?: number,
-    originZ?: number
+    originZ?: number,
   ): DOMMatrix;
   setMatrixValue(transformList: string): DOMMatrix;
   skewXSelf(sx?: number): DOMMatrix;
@@ -156,7 +186,13 @@ export interface CanvasCompositing {
 
 export interface CanvasDrawImage {
   drawImage(image: CanvasImageSource, dx: number, dy: number): void;
-  drawImage(image: CanvasImageSource, dx: number, dy: number, dw: number, dh: number): void;
+  drawImage(
+    image: CanvasImageSource,
+    dx: number,
+    dy: number,
+    dw: number,
+    dh: number,
+  ): void;
   drawImage(
     image: CanvasImageSource,
     sx: number,
@@ -166,7 +202,7 @@ export interface CanvasDrawImage {
     dx: number,
     dy: number,
     dw: number,
-    dh: number
+    dh: number,
   ): void;
 }
 
@@ -177,7 +213,12 @@ export interface CanvasDrawPath {
   fill(fillRule?: CanvasFillRule): void;
   fill(path: Path2D, fillRule?: CanvasFillRule): void;
   isPointInPath(x: number, y: number, fillRule?: CanvasFillRule): boolean;
-  isPointInPath(path: Path2D, x: number, y: number, fillRule?: CanvasFillRule): boolean;
+  isPointInPath(
+    path: Path2D,
+    x: number,
+    y: number,
+    fillRule?: CanvasFillRule,
+  ): boolean;
   isPointInStroke(x: number, y: number): boolean;
   isPointInStroke(path: Path2D, x: number, y: number): boolean;
   stroke(): void;
@@ -187,9 +228,24 @@ export interface CanvasDrawPath {
 export interface CanvasFillStrokeStyles {
   fillStyle: string | CanvasGradient | CanvasPattern;
   strokeStyle: string | CanvasGradient | CanvasPattern;
-  createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
-  createPattern(image: CanvasImageSource, repetition: string | null): CanvasPattern | null;
-  createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
+  createLinearGradient(
+    x0: number,
+    y0: number,
+    x1: number,
+    y1: number,
+  ): CanvasGradient;
+  createPattern(
+    image: CanvasImageSource,
+    repetition: string | null,
+  ): CanvasPattern | null;
+  createRadialGradient(
+    x0: number,
+    y0: number,
+    r0: number,
+    x1: number,
+    y1: number,
+    r1: number,
+  ): CanvasGradient;
 }
 
 export interface CanvasFilters {
@@ -223,7 +279,7 @@ export interface CanvasImageData {
     dirtyX: number,
     dirtyY: number,
     dirtyWidth: number,
-    dirtyHeight: number
+    dirtyHeight: number,
   ): void;
 }
 
@@ -233,9 +289,23 @@ export interface CanvasImageSmoothing {
 }
 
 export interface CanvasPath {
-  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
+  arc(
+    x: number,
+    y: number,
+    radius: number,
+    startAngle: number,
+    endAngle: number,
+    anticlockwise?: boolean,
+  ): void;
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
-  bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
+  bezierCurveTo(
+    cp1x: number,
+    cp1y: number,
+    cp2x: number,
+    cp2y: number,
+    x: number,
+    y: number,
+  ): void;
   closePath(): void;
   ellipse(
     x: number,
@@ -245,7 +315,7 @@ export interface CanvasPath {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    anticlockwise?: boolean
+    anticlockwise?: boolean,
   ): void;
   lineTo(x: number, y: number): void;
   moveTo(x: number, y: number): void;
@@ -284,7 +354,8 @@ export interface CanvasRect {
 
 /** The CanvasRenderingContext2D export interface, part of the Canvas API, provides the 2D rendering context for the drawing surface of a <canvas> element. It is used for drawing shapes, text, images, and other objects. */
 export interface CanvasRenderingContext2D
-  extends CanvasCompositing,
+  extends
+    CanvasCompositing,
     CanvasDrawImage,
     CanvasDrawPath,
     CanvasFillStrokeStyles,
@@ -353,9 +424,23 @@ export interface CanvasTransform {
   resetTransform(): void;
   rotate(angle: number): void;
   scale(x: number, y: number): void;
-  setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
+  setTransform(
+    a: number,
+    b: number,
+    c: number,
+    d: number,
+    e: number,
+    f: number,
+  ): void;
   setTransform(transform?: DOMMatrix2DInit): void;
-  transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
+  transform(
+    a: number,
+    b: number,
+    c: number,
+    d: number,
+    e: number,
+    f: number,
+  ): void;
   translate(x: number, y: number): void;
 }
 
@@ -373,7 +458,9 @@ export interface ImageData {
 }
 export interface Path2D {}
 
-export declare function CanvasKitInit(opts: CanvasKitInitOptions): Promise<CanvasKit>;
+export declare function CanvasKitInit(
+  opts: CanvasKitInitOptions,
+): Promise<CanvasKit>;
 
 export interface CanvasKitInitOptions {
   /**
@@ -521,7 +608,7 @@ export interface CanvasKit {
     lightPos: InputVector3,
     lightRadius: number,
     flags: number,
-    dstRect?: Rect
+    dstRect?: Rect,
   ): Rect | null;
 
   /**
@@ -579,7 +666,11 @@ export interface CanvasKit {
    *                      5 * 4 = 20 bytesPerRow. Some clients may have more than the usual to make the data line
    *                      up with a particular multiple.
    */
-  MakeRasterDirectSurface(ii: ImageInfo, pixels: MallocObj, bytesPerRow: number): Surface | null;
+  MakeRasterDirectSurface(
+    ii: ImageInfo,
+    pixels: MallocObj,
+    bytesPerRow: number,
+  ): Surface | null;
 
   /**
    * Creates a CPU backed (aka raster) surface.
@@ -597,7 +688,7 @@ export interface CanvasKit {
   MakeWebGLCanvasSurface(
     canvas: HTMLCanvasElement | string,
     colorSpace?: ColorSpace,
-    opts?: WebGLOptions
+    opts?: WebGLOptions,
   ): Surface | null;
 
   /**
@@ -615,7 +706,10 @@ export interface CanvasKit {
    * @param canvas
    * @param opts
    */
-  GetWebGLContext(canvas: HTMLCanvasElement, opts?: WebGLOptions): WebGLContextHandle;
+  GetWebGLContext(
+    canvas: HTMLCanvasElement,
+    opts?: WebGLOptions,
+  ): WebGLContextHandle;
 
   /**
    * Creates a GrDirectContext from the given WebGL Context.
@@ -634,7 +728,7 @@ export interface CanvasKit {
     ctx: GrDirectContext,
     width: number,
     height: number,
-    colorSpace: ColorSpace
+    colorSpace: ColorSpace,
   ): Surface | null;
 
   /**
@@ -644,7 +738,11 @@ export interface CanvasKit {
    * @param width
    * @param height
    */
-  MakeRenderTarget(ctx: GrDirectContext, width: number, height: number): Surface | null;
+  MakeRenderTarget(
+    ctx: GrDirectContext,
+    width: number,
+    height: number,
+  ): Surface | null;
 
   /**
    * Returns a (non-visible) Surface on the GPU. It has the settings provided by image info.
@@ -680,7 +778,9 @@ export interface CanvasKit {
    * The passed in bytes will be copied into the WASM heap, so the caller can dispose of them.
    * @param bytes
    */
-  MakeAnimatedImageFromEncoded(bytes: Uint8Array | ArrayBuffer): AnimatedImage | null;
+  MakeAnimatedImageFromEncoded(
+    bytes: Uint8Array | ArrayBuffer,
+  ): AnimatedImage | null;
 
   /**
    * Returns an emulated Canvas2D of the given size.
@@ -699,7 +799,11 @@ export interface CanvasKit {
    * @param bytes - bytes representing the pixel data.
    * @param bytesPerRow
    */
-  MakeImage(info: ImageInfo, bytes: number[] | Uint8Array | Uint8ClampedArray, bytesPerRow: number): Image | null;
+  MakeImage(
+    info: ImageInfo,
+    bytes: number[] | Uint8Array | Uint8ClampedArray,
+    bytesPerRow: number,
+  ): Image | null;
 
   /**
    * Return an Image backed by the encoded data, but attempt to defer decoding until the image
@@ -741,7 +845,7 @@ export interface CanvasKit {
     textureCoordinates?: InputFlattenedPointArray | null,
     colors?: Float32Array | ColorIntArray | null,
     indices?: number[] | null,
-    isVolatile?: boolean
+    isVolatile?: boolean,
   ): Vertices;
 
   /**
@@ -765,7 +869,7 @@ export interface CanvasKit {
     json: string,
     assets?: Record<string, ArrayBuffer>,
     filterPrefix?: string,
-    soundMap?: SoundMap
+    soundMap?: SoundMap,
   ): ManagedSkottieAnimation;
 
   /**
@@ -960,7 +1064,10 @@ export interface EmulatedCanvas2D {
    * @param bytes
    * @param descriptors
    */
-  loadFont(bytes: ArrayBuffer | Uint8Array, descriptors: Record<string, string>): void;
+  loadFont(
+    bytes: ArrayBuffer | Uint8Array,
+    descriptors: Record<string, string>,
+  ): void;
 
   /**
    * Registers a font into Canvas. (node-canvas compatibility)
@@ -1257,7 +1364,7 @@ export interface Paragraph extends EmbindObject<Paragraph> {
     start: number,
     end: number,
     hStyle: RectHeightStyle,
-    wStyle: RectWidthStyle
+    wStyle: RectWidthStyle,
   ): FlattenedRectangleArray;
 
   /**
@@ -1292,7 +1399,7 @@ export interface ParagraphBuilder extends EmbindObject<ParagraphBuilder> {
     height?: number,
     alignment?: PlaceholderAlignment,
     baseline?: TextBaseline,
-    offset?: number
+    offset?: number,
   ): void;
 
   /**
@@ -1520,7 +1627,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     startAngle: AngleInDegrees,
     sweepAngle: AngleInDegrees,
     useCenter: boolean,
-    paint: Paint
+    paint: Paint,
   ): void;
 
   /**
@@ -1540,7 +1647,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     paint: Paint,
     blendMode?: BlendMode | null,
     colors?: ColorIntArray | null,
-    sampling?: CubicResampler | FilterOptions
+    sampling?: CubicResampler | FilterOptions,
   ): void;
 
   /**
@@ -1567,7 +1674,13 @@ export interface Canvas extends EmbindObject<Canvas> {
    * @param a - alpha value, range 0 to 1.0 (1.0 is opaque).
    * @param blendMode - defaults to SrcOver.
    */
-  drawColorComponents(r: number, g: number, b: number, a: number, blendMode?: BlendMode): void;
+  drawColorComponents(
+    r: number,
+    g: number,
+    b: number,
+    a: number,
+    blendMode?: BlendMode,
+  ): void;
 
   /**
    * Fills clip with the given color.
@@ -1600,7 +1713,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     x: number,
     y: number,
     font: Font,
-    paint: Paint
+    paint: Paint,
   ): void;
 
   /**
@@ -1623,7 +1736,14 @@ export interface Canvas extends EmbindObject<Canvas> {
    * @param C - See CubicResampler in SkSamplingOptions.h for more information
    * @param paint
    */
-  drawImageCubic(img: Image, left: number, top: number, B: number, C: number, paint?: Paint | null): void;
+  drawImageCubic(
+    img: Image,
+    left: number,
+    top: number,
+    B: number,
+    C: number,
+    paint?: Paint | null,
+  ): void;
 
   /**
    * Draws the given image with its top-left corner at (left, top) using the current clip,
@@ -1642,7 +1762,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     top: number,
     fm: FilterMode,
     mm: MipmapMode,
-    paint?: Paint | null
+    paint?: Paint | null,
   ): void;
 
   /**
@@ -1655,7 +1775,13 @@ export interface Canvas extends EmbindObject<Canvas> {
    * @param filter - what technique to use when sampling the image
    * @param paint
    */
-  drawImageNine(img: Image, center: InputIRect, dest: InputRect, filter: FilterMode, paint?: Paint | null): void;
+  drawImageNine(
+    img: Image,
+    center: InputIRect,
+    dest: InputRect,
+    filter: FilterMode,
+    paint?: Paint | null,
+  ): void;
 
   /**
    * Draws sub-rectangle src from provided image, scaled and translated to fill dst rectangle.
@@ -1665,7 +1791,13 @@ export interface Canvas extends EmbindObject<Canvas> {
    * @param paint
    * @param fastSample - if false, will filter strictly within src.
    */
-  drawImageRect(img: Image, src: InputRect, dest: InputRect, paint: Paint, fastSample?: boolean): void;
+  drawImageRect(
+    img: Image,
+    src: InputRect,
+    dest: InputRect,
+    paint: Paint,
+    fastSample?: boolean,
+  ): void;
 
   /**
    * Draws sub-rectangle src from provided image, scaled and translated to fill dst rectangle.
@@ -1683,7 +1815,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     dest: InputRect,
     B: number,
     C: number,
-    paint?: Paint | null
+    paint?: Paint | null,
   ): void;
 
   /**
@@ -1703,7 +1835,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     dest: InputRect,
     fm: FilterMode,
     mm: MipmapMode,
-    paint?: Paint | null
+    paint?: Paint | null,
   ): void;
 
   /**
@@ -1761,7 +1893,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     colors?: ColorIntArray | Color[] | null,
     texs?: InputFlattenedPointArray | null,
     mode?: BlendMode | null,
-    paint?: Paint
+    paint?: Paint,
   ): void;
 
   /**
@@ -1778,7 +1910,11 @@ export interface Canvas extends EmbindObject<Canvas> {
    * @param points
    * @param paint
    */
-  drawPoints(mode: PointMode, points: InputFlattenedPointArray, paint: Paint): void;
+  drawPoints(
+    mode: PointMode,
+    points: InputFlattenedPointArray,
+    paint: Paint,
+  ): void;
 
   /**
    * Draws the given rectangle using the current clip, current matrix, and the provided paint.
@@ -1795,7 +1931,13 @@ export interface Canvas extends EmbindObject<Canvas> {
    * @param bottom
    * @param paint
    */
-  drawRect4f(left: number, top: number, right: number, bottom: number, paint: Paint): void;
+  drawRect4f(
+    left: number,
+    top: number,
+    right: number,
+    bottom: number,
+    paint: Paint,
+  ): void;
 
   /**
    * Draws the given rectangle with rounded corners using the current clip, current matrix,
@@ -1826,7 +1968,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     lightRadius: number,
     ambientColor: InputColor,
     spotColor: InputColor,
-    flags: number
+    flags: number,
   ): void;
 
   /**
@@ -1930,7 +2072,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     srcY: number,
     imageInfo: ImageInfo,
     dest?: MallocObj,
-    bytesPerRow?: number
+    bytesPerRow?: number,
   ): Uint8Array | Float32Array | null;
 
   /**
@@ -1973,7 +2115,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     paint?: Paint,
     bounds?: InputRect | null,
     backdrop?: ImageFilter | null,
-    flags?: SaveLayerFlag
+    flags?: SaveLayerFlag,
   ): number;
 
   /**
@@ -2019,7 +2161,7 @@ export interface Canvas extends EmbindObject<Canvas> {
     destY: number,
     alphaType?: AlphaType,
     colorType?: ColorType,
-    colorSpace?: ColorSpace
+    colorSpace?: ColorSpace,
   ): boolean;
 }
 
@@ -2092,7 +2234,11 @@ export interface Font extends EmbindObject<Font> {
    * @param paint
    * @param output - if provided, the results will be copied into this array.
    */
-  getGlyphBounds(glyphs: InputGlyphIDArray, paint?: Paint | null, output?: Float32Array): Float32Array;
+  getGlyphBounds(
+    glyphs: InputGlyphIDArray,
+    paint?: Paint | null,
+    output?: Float32Array,
+  ): Float32Array;
 
   /**
    * Retrieves the glyph ids for each code point in the provided string. This call is passed to
@@ -2102,7 +2248,11 @@ export interface Font extends EmbindObject<Font> {
    * @param numCodePoints - the number of code points in the string. Defaults to str.length.
    * @param output - if provided, the results will be copied into this array.
    */
-  getGlyphIDs(str: string, numCodePoints?: number, output?: GlyphIDArray): GlyphIDArray;
+  getGlyphIDs(
+    str: string,
+    numCodePoints?: number,
+    output?: GlyphIDArray,
+  ): GlyphIDArray;
 
   /**
    * Retrieves the advanceX measurements for each glyph.
@@ -2112,7 +2262,11 @@ export interface Font extends EmbindObject<Font> {
    * @param paint
    * @param output - if provided, the results will be copied into this array.
    */
-  getGlyphWidths(glyphs: InputGlyphIDArray, paint?: Paint | null, output?: Float32Array): Float32Array;
+  getGlyphWidths(
+    glyphs: InputGlyphIDArray,
+    paint?: Paint | null,
+    output?: Float32Array,
+  ): Float32Array;
 
   /**
    * Computes any intersections of a thick "line" and a run of positionsed glyphs.
@@ -2133,7 +2287,7 @@ export interface Font extends EmbindObject<Font> {
     glyphs: InputGlyphIDArray,
     positions: Float32Array | number[],
     top: number,
-    bottom: number
+    bottom: number,
   ): Float32Array;
 
   /**
@@ -2292,7 +2446,13 @@ export interface Image extends EmbindObject<Image> {
    * @param C - See CubicResampler in SkSamplingOptions.h for more information
    * @param localMatrix
    */
-  makeShaderCubic(tx: TileMode, ty: TileMode, B: number, C: number, localMatrix?: InputMatrix): Shader;
+  makeShaderCubic(
+    tx: TileMode,
+    ty: TileMode,
+    B: number,
+    C: number,
+    localMatrix?: InputMatrix,
+  ): Shader;
 
   /**
    * Returns this image as a shader with the specified tiling. It will use cubic sampling.
@@ -2303,7 +2463,13 @@ export interface Image extends EmbindObject<Image> {
    *             calculated with makeCopyWithDefaultMipmaps;
    * @param localMatrix
    */
-  makeShaderOptions(tx: TileMode, ty: TileMode, fm: FilterMode, mm: MipmapMode, localMatrix?: InputMatrix): Shader;
+  makeShaderOptions(
+    tx: TileMode,
+    ty: TileMode,
+    fm: FilterMode,
+    mm: MipmapMode,
+    localMatrix?: InputMatrix,
+  ): Shader;
 
   /**
    * Returns a TypedArray containing the pixels reading starting at (srcX, srcY) and does not
@@ -2328,7 +2494,7 @@ export interface Image extends EmbindObject<Image> {
     srcY: number,
     imageInfo: ImageInfo,
     dest?: MallocObj,
-    bytesPerRow?: number
+    bytesPerRow?: number,
   ): Uint8Array | Float32Array | null;
 
   /**
@@ -2452,7 +2618,13 @@ export interface Paint extends EmbindObject<Paint> {
    * @param a
    * @param colorSpace - defaults to sRGB
    */
-  setColorComponents(r: number, g: number, b: number, a: number, colorSpace?: ColorSpace): void;
+  setColorComponents(
+    r: number,
+    g: number,
+    b: number,
+    a: number,
+    colorSpace?: ColorSpace,
+  ): void;
 
   /**
    * Sets the current color filter, replacing the existing one if there was one.
@@ -2537,7 +2709,11 @@ export interface Path extends EmbindObject<Path> {
    * @param startAngle
    * @param sweepAngle
    */
-  addArc(oval: InputRect, startAngle: AngleInDegrees, sweepAngle: AngleInDegrees): Path;
+  addArc(
+    oval: InputRect,
+    startAngle: AngleInDegrees,
+    sweepAngle: AngleInDegrees,
+  ): Path;
 
   /**
    * Adds oval to Path, appending kMove_Verb, four kConic_Verb, and kClose_Verb.
@@ -2602,7 +2778,11 @@ export interface Path extends EmbindObject<Path> {
    * @param points - represents n points with 2n floats.
    * @param weights - used if any of the verbs are conics, can be omitted otherwise.
    */
-  addVerbsPointsWeights(verbs: VerbList, points: InputFlattenedPointArray, weights?: WeightList): Path;
+  addVerbsPointsWeights(
+    verbs: VerbList,
+    points: InputFlattenedPointArray,
+    weights?: WeightList,
+  ): Path;
 
   /**
    * Adds an arc to this path, emulating the Canvas2D behavior.
@@ -2620,7 +2800,7 @@ export interface Path extends EmbindObject<Path> {
     radius: number,
     startAngle: AngleInRadians,
     endAngle: AngleInRadians,
-    isCCW?: boolean
+    isCCW?: boolean,
   ): Path;
 
   /**
@@ -2634,7 +2814,12 @@ export interface Path extends EmbindObject<Path> {
    * @param endAngle
    * @param forceMoveTo
    */
-  arcToOval(oval: InputRect, startAngle: AngleInDegrees, endAngle: AngleInDegrees, forceMoveTo: boolean): Path;
+  arcToOval(
+    oval: InputRect,
+    startAngle: AngleInDegrees,
+    endAngle: AngleInDegrees,
+    forceMoveTo: boolean,
+  ): Path;
 
   /**
    * Appends arc to Path. Arc is implemented by one or more conics weighted to
@@ -2657,7 +2842,7 @@ export interface Path extends EmbindObject<Path> {
     useSmallArc: boolean,
     isCCW: boolean,
     x: number,
-    y: number
+    y: number,
   ): Path;
 
   /**
@@ -2672,7 +2857,13 @@ export interface Path extends EmbindObject<Path> {
    * @param y2
    * @param radius
    */
-  arcToTangent(x1: number, y1: number, x2: number, y2: number, radius: number): Path;
+  arcToTangent(
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    radius: number,
+  ): Path;
 
   /**
    * Appends CLOSE_VERB to Path. A closed contour connects the first and last point
@@ -2738,7 +2929,14 @@ export interface Path extends EmbindObject<Path> {
    * @param x
    * @param y
    */
-  cubicTo(cpx1: number, cpy1: number, cpx2: number, cpy2: number, x: number, y: number): Path;
+  cubicTo(
+    cpx1: number,
+    cpy1: number,
+    cpx2: number,
+    cpy2: number,
+    x: number,
+    y: number,
+  ): Path;
 
   /**
    * Changes this path to be the dashed version of itself. This is the same effect as creating
@@ -2860,7 +3058,7 @@ export interface Path extends EmbindObject<Path> {
     useSmallArc: boolean,
     isCCW: boolean,
     dx: number,
-    dy: number
+    dy: number,
   ): Path;
 
   /**
@@ -2882,7 +3080,14 @@ export interface Path extends EmbindObject<Path> {
    * @param x
    * @param y
    */
-  rCubicTo(cpx1: number, cpy1: number, cpx2: number, cpy2: number, x: number, y: number): Path;
+  rCubicTo(
+    cpx1: number,
+    cpy1: number,
+    cpx2: number,
+    cpy2: number,
+    x: number,
+    y: number,
+  ): Path;
 
   /**
    * Sets Path to its initial state.
@@ -3030,7 +3235,11 @@ export interface RuntimeEffect extends EmbindObject<RuntimeEffect> {
    * @param isOpaque
    * @param localMatrix
    */
-  makeShader(uniforms: Float32Array | number[], isOpaque?: boolean, localMatrix?: InputMatrix): Shader;
+  makeShader(
+    uniforms: Float32Array | number[],
+    isOpaque?: boolean,
+    localMatrix?: InputMatrix,
+  ): Shader;
 
   /**
    * Returns a shader executed using the given uniform data and the children as inputs.
@@ -3043,7 +3252,7 @@ export interface RuntimeEffect extends EmbindObject<RuntimeEffect> {
     uniforms: Float32Array | number[],
     isOpaque?: boolean,
     children?: Shader[],
-    localMatrix?: InputMatrix
+    localMatrix?: InputMatrix,
   ): Shader;
 
   /**
@@ -3124,7 +3333,11 @@ export interface Surface extends EmbindObject<Surface> {
    * @param height - If provided, will be used as the height of src. Otherwise, the natural
    *                height of src (if available) will be used.
    */
-  makeImageFromTextureSource(src: TextureSource, width?: number, height?: number): Image | null;
+  makeImageFromTextureSource(
+    src: TextureSource,
+    width?: number,
+    height?: number,
+  ): Image | null;
 
   /**
    * Returns current contents of the surface as an Image. This image will be optimized to be
@@ -3172,7 +3385,11 @@ export interface Typeface extends EmbindObject<Typeface> {
    * @param numCodePoints - the number of code points in the string. Defaults to str.length.
    * @param output - if provided, the results will be copied into this array.
    */
-  getGlyphIDs(str: string, numCodePoints?: number, output?: GlyphIDArray): GlyphIDArray;
+  getGlyphIDs(
+    str: string,
+    numCodePoints?: number,
+    output?: GlyphIDArray,
+  ): GlyphIDArray;
 }
 
 /**
@@ -3310,7 +3527,8 @@ export interface TonalColorsOutput {
   spot: Color;
 }
 
-export interface TypefaceFontProvider extends EmbindObject<TypefaceFontProvider> {
+export interface TypefaceFontProvider
+  extends EmbindObject<TypefaceFontProvider> {
   /**
    * Registers a given typeface with the given family name (ignoring whatever name the
    * typface has for itself).
@@ -3371,7 +3589,13 @@ export interface ColorMatrixHelpers {
    * @param db - delta blue
    * @param da - delta alpha
    */
-  postTranslate(m: ColorMatrix, dr: number, dg: number, db: number, da: number): ColorMatrix;
+  postTranslate(
+    m: ColorMatrix,
+    dr: number,
+    dg: number,
+    db: number,
+    da: number,
+  ): ColorMatrix;
 
   /**
    * Returns a new ColorMatrix that is rotated around a given axis.
@@ -3388,7 +3612,12 @@ export interface ColorMatrixHelpers {
    * @param blueScale
    * @param alphaScale
    */
-  scaled(redScale: number, greenScale: number, blueScale: number, alphaScale: number): ColorMatrix;
+  scaled(
+    redScale: number,
+    greenScale: number,
+    blueScale: number,
+    alphaScale: number,
+  ): ColorMatrix;
 }
 
 /**
@@ -3396,7 +3625,11 @@ export interface ColorMatrixHelpers {
  */
 export interface ImageDataConstructor {
   new (width: number, height: number): EmulatedImageData;
-  new (pixels: Uint8ClampedArray, width: number, height: number): EmulatedImageData;
+  new (
+    pixels: Uint8ClampedArray,
+    width: number,
+    height: number,
+  ): EmulatedImageData;
 }
 
 /**
@@ -3425,7 +3658,7 @@ export interface Matrix3x3Helpers {
    * Multiplies the provided 3x3 matrices together from left to right.
    * @param matrices
    */
-  multiply(...matrices: Array<Matrix3x3 | number[]>): number[];
+  multiply(...matrices: Array<(Matrix3x3 | number[])>): number[];
 
   /**
    * Returns a new 3x3 matrix representing a rotation by n radians.
@@ -3488,7 +3721,7 @@ export interface Matrix4x4Helpers {
    * Multiplies the provided 4x4 matrices together from left to right.
    * @param matrices
    */
-  multiply(...matrices: Array<Matrix4x4 | number[]>): number[];
+  multiply(...matrices: Array<(Matrix4x4 | number[])>): number[];
 
   /**
    * Returns the inverse of the given 4x4 matrix or throws if it is not invertible.
@@ -3530,7 +3763,11 @@ export interface Matrix4x4Helpers {
    * @param sinAngle
    * @param cosAngle
    */
-  rotatedUnitSinCos(axis: Vector3, sinAngle: number, cosAngle: number): number[];
+  rotatedUnitSinCos(
+    axis: Vector3,
+    sinAngle: number,
+    cosAngle: number,
+  ): number[];
 
   /**
    * Returns a new 4x4 matrix representing a scale by the provided vector.
@@ -3572,7 +3809,10 @@ export interface ParagraphBuilderFactory {
    * @param style
    * @param fontSrc
    */
-  MakeFromFontProvider(style: ParagraphStyle, fontSrc: TypefaceFontProvider): ParagraphBuilder;
+  MakeFromFontProvider(
+    style: ParagraphStyle,
+    fontSrc: TypefaceFontProvider,
+  ): ParagraphBuilder;
 
   /**
    * Return a shaped array of lines
@@ -3663,7 +3903,12 @@ export interface FontConstructor extends DefaultConstructor<Font> {
    * @param scaleX
    * @param skewX
    */
-  new (face: Typeface | null, size: number, scaleX: number, skewX: number): Font;
+  new (
+    face: Typeface | null,
+    size: number,
+    scaleX: number,
+    skewX: number,
+  ): Font;
 }
 
 export interface FontMgrFactory {
@@ -3693,7 +3938,12 @@ export interface ImageFilterFactory {
    * @param mode
    * @param input - if null, it will use the dynamic source image (e.g. a saved layer)
    */
-  MakeBlur(sigmaX: number, sigmaY: number, mode: TileMode, input: ImageFilter | null): ImageFilter;
+  MakeBlur(
+    sigmaX: number,
+    sigmaY: number,
+    mode: TileMode,
+    input: ImageFilter | null,
+  ): ImageFilter;
 
   /**
    * Create a filter that applies the color filter to the input filter results.
@@ -3709,7 +3959,10 @@ export interface ImageFilterFactory {
    * @param outer
    * @param inner - if null, it will use the dynamic source image (e.g. a saved layer)
    */
-  MakeCompose(outer: ImageFilter | null, inner: ImageFilter | null): ImageFilter;
+  MakeCompose(
+    outer: ImageFilter | null,
+    inner: ImageFilter | null,
+  ): ImageFilter;
 
   /**
    * Create a filter that transforms the input image by 'matrix'. This matrix transforms the
@@ -3722,7 +3975,7 @@ export interface ImageFilterFactory {
   MakeMatrixTransform(
     matr: InputMatrix,
     sampling: FilterOptions | CubicResampler,
-    input: ImageFilter | null
+    input: ImageFilter | null,
   ): ImageFilter;
 }
 
@@ -3776,7 +4029,11 @@ export interface PathConstructorAndFactory extends DefaultConstructor<Path> {
    * @param points - represents n points with 2n floats.
    * @param weights - used if any of the verbs are conics, can be omitted otherwise.
    */
-  MakeFromVerbsPointsWeights(verbs: VerbList, points: InputFlattenedPointArray, weights?: WeightList): Path;
+  MakeFromVerbsPointsWeights(
+    verbs: VerbList,
+    points: InputFlattenedPointArray,
+    weights?: WeightList,
+  ): Path;
 }
 
 /**
@@ -3860,7 +4117,7 @@ export interface ShaderFactory {
     octaves: number,
     seed: number,
     tileW: number,
-    tileH: number
+    tileH: number,
   ): Shader;
 
   /**
@@ -3887,7 +4144,7 @@ export interface ShaderFactory {
     mode: TileMode,
     localMatrix?: InputMatrix,
     flags?: number,
-    colorSpace?: ColorSpace
+    colorSpace?: ColorSpace,
   ): Shader;
 
   /**
@@ -3911,7 +4168,7 @@ export interface ShaderFactory {
     mode: TileMode,
     localMatrix?: InputMatrix,
     flags?: number,
-    colorSpace?: ColorSpace
+    colorSpace?: ColorSpace,
   ): Shader;
 
   /**
@@ -3939,7 +4196,7 @@ export interface ShaderFactory {
     flags?: number,
     startAngle?: AngleInDegrees,
     endAngle?: AngleInDegrees,
-    colorSpace?: ColorSpace
+    colorSpace?: ColorSpace,
   ): Shader;
 
   /**
@@ -3960,7 +4217,7 @@ export interface ShaderFactory {
     octaves: number,
     seed: number,
     tileW: number,
-    tileH: number
+    tileH: number,
   ): Shader;
 
   /**
@@ -3987,7 +4244,7 @@ export interface ShaderFactory {
     mode: TileMode,
     localMatrix?: InputMatrix,
     flags?: number,
-    colorSpace?: ColorSpace
+    colorSpace?: ColorSpace,
   ): Shader;
 }
 
@@ -4014,7 +4271,11 @@ export interface TextBlobFactory {
    * @param rsxforms
    * @param font
    */
-  MakeFromRSXform(str: string, rsxforms: InputFlattenedRSXFormArray, font: Font): TextBlob;
+  MakeFromRSXform(
+    str: string,
+    rsxforms: InputFlattenedRSXFormArray,
+    font: Font,
+  ): TextBlob;
 
   /**
    * Returns a TextBlob built from a single run of text with rotation, scale, and translations.
@@ -4023,7 +4284,11 @@ export interface TextBlobFactory {
    * @param rsxforms
    * @param font
    */
-  MakeFromRSXformGlyphs(glyphs: InputGlyphIDArray, rsxforms: InputFlattenedRSXFormArray, font: Font): TextBlob;
+  MakeFromRSXformGlyphs(
+    glyphs: InputGlyphIDArray,
+    rsxforms: InputFlattenedRSXFormArray,
+    font: Font,
+  ): TextBlob;
 
   /**
    * Return a TextBlob with a single run of text.
@@ -4046,7 +4311,12 @@ export interface TextBlobFactory {
    * @param font
    * @param initialOffset - the length in pixels to start along the path.
    */
-  MakeOnPath(str: string, path: Path, font: Font, initialOffset?: number): TextBlob;
+  MakeOnPath(
+    str: string,
+    path: Path,
+    font: Font,
+    initialOffset?: number,
+  ): TextBlob;
 }
 
 export interface TextStyleConstructor {
@@ -4268,19 +4538,28 @@ export type InputGlyphIDArray = MallocObj | GlyphIDArray | number[];
  * CanvasKit APIs accept normal arrays, typed arrays, or Malloc'd memory as flattened points.
  * Length 2 * n for n points.
  */
-export type InputFlattenedPointArray = MallocObj | FlattenedPointArray | number[];
+export type InputFlattenedPointArray =
+  | MallocObj
+  | FlattenedPointArray
+  | number[];
 /**
  * CanvasKit APIs accept normal arrays, typed arrays, or Malloc'd memory as flattened rectangles.
  * Length 4 * n for n rectangles.
  */
-export type InputFlattenedRectangleArray = MallocObj | FlattenedRectangleArray | number[];
+export type InputFlattenedRectangleArray =
+  | MallocObj
+  | FlattenedRectangleArray
+  | number[];
 /**
  * Some APIs accept a flattened array of colors in one of two ways - groups of 4 float values for
  * r, g, b, a or just integers that have 8 bits for each these. CanvasKit will detect which one
  * it is and act accordingly. Additionally, this can be an array of Float32Arrays of length 4
  * (e.g. Color). This is convenient for things like gradients when matching up colors to stops.
  */
-export type InputFlexibleColorArray = Float32Array | Uint32Array | Float32Array[];
+export type InputFlexibleColorArray =
+  | Float32Array
+  | Uint32Array
+  | Float32Array[];
 /**
  * CanvasKit APIs accept a Float32Array or a normal array (of length 2) as a Point.
  */
@@ -4288,7 +4567,13 @@ export type InputPoint = Point | number[];
 /**
  * CanvasKit APIs accept all of these matrix types. Under the hood, we generally use 4x4 matrices.
  */
-export type InputMatrix = MallocObj | Matrix4x4 | Matrix3x3 | Matrix3x2 | DOMMatrix | number[];
+export type InputMatrix =
+  | MallocObj
+  | Matrix4x4
+  | Matrix3x3
+  | Matrix3x2
+  | DOMMatrix
+  | number[];
 /**
  * CanvasKit APIs accept normal arrays, typed arrays, or Malloc'd memory as rectangles.
  * Length 4.
@@ -4317,7 +4602,10 @@ export type InputVector3 = MallocObj | Vector3 | Float32Array;
 /**
  * These are the types that webGL's texImage2D supports as a way to get data from as a texture.
  */
-export type TextureSource = TypedArray | ImageData | ImageBitmap;
+export type TextureSource =
+  | TypedArray
+  | ImageData
+  | ImageBitmap;
 
 export type AlphaType = EmbindEnumEntity;
 export type BlendMode = EmbindEnumEntity;
@@ -4410,8 +4698,7 @@ export interface ClipOpEnumValues extends EmbindEnum {
 /**
  * The currently supported color spaces. These are all singleton values.
  */
-export interface ColorSpaceEnumValues {
-  // not a typical enum, but effectively like one.
+export interface ColorSpaceEnumValues { // not a typical enum, but effectively like one.
   // These are all singleton values - don't call delete on them.
   readonly SRGB: ColorSpace;
   readonly DISPLAY_P3: ColorSpace;

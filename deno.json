@@ -1,8 +1,0 @@
-{
-  "name": "@josefabio/deno-canvas",
-  "version": "1.5.1",
-  "exports": "./mod.ts",
-  "imports": {
-    "@std/encoding": "jsr:@std/encoding@^0.224.2"
-  }
-}
